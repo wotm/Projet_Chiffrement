@@ -3,7 +3,7 @@
 // L'algorithme consiste à ajouter un chiffre (+8) à la lettre et ajouter une lettre sur la droite de chaque lettre déjà présente. 
 // Cette dernière lettre ajoutée vaut la lettre de gauche + le premier chiffre ajouté multiplié par 2 (chiffreAdditione*2)
 
-public class Algorithme_Rayane_1 {
+public class Algorithme_Chiffrement_Nom_Fichier {
 
 	
 	private static final int chiffreAdditione = 8;
@@ -14,7 +14,7 @@ public class Algorithme_Rayane_1 {
 	
 	//------- Encryptage -------
 	
-	public static String Algo_Rayane_1_Cryptage(String mot) {
+	public static String Algo_Cryptage(String mot) {
 		
 		String motFinal = "";
 		
@@ -57,7 +57,7 @@ public class Algorithme_Rayane_1 {
 	//------- Décryptage -------
 	
 	
-	public static String Algo_Rayane_1_Decryptage(String mot) {
+	public static String Algo_Decryptage(String mot) {
 		String motFinal = mot;
 		int i = 0;
 		while(i < motFinal.length()-1) {
