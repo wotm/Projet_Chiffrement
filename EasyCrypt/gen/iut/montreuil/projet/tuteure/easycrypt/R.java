@@ -8,6 +8,12 @@
 package iut.montreuil.projet.tuteure.easycrypt;
 
 public final class R {
+    public static final class array {
+        public static final int fileEndingAudio=0x7f050001;
+        public static final int fileEndingImage=0x7f050000;
+        public static final int fileEndingPackage=0x7f050002;
+        public static final int fileEndingWebText=0x7f050003;
+    }
     public static final class attr {
     }
     public static final class dimen {
@@ -21,48 +27,66 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int audio=0x7f020000;
+        public static final int folder=0x7f020001;
+        public static final int goroot=0x7f020002;
+        public static final int ic_launcher=0x7f020003;
+        public static final int icon=0x7f020004;
+        public static final int image=0x7f020005;
+        public static final int packed=0x7f020006;
+        public static final int text=0x7f020007;
+        public static final int uponelevel=0x7f020008;
+        public static final int webtext=0x7f020009;
     }
     public static final class id {
-        public static final int CheckBox03=0x7f080005;
-        public static final int CheckBox04=0x7f080004;
-        public static final int CheckBox05=0x7f080003;
-        public static final int CheckBox06=0x7f080002;
-        public static final int CheckBox07=0x7f080001;
-        public static final int CheckBox08=0x7f080000;
-        public static final int action_settings=0x7f08000e;
-        public static final int btn_chiffrer=0x7f08000c;
-        public static final int btn_close=0x7f08000b;
-        public static final int btn_dechiffrer=0x7f08000d;
-        public static final int btn_decryptAct=0x7f080006;
-        public static final int btn_decrypt_cancel=0x7f080007;
-        public static final int btn_settings=0x7f080009;
-        public static final int btn_start=0x7f080008;
-        public static final int btn_usr_guide=0x7f08000a;
+        public static final int CheckBox03=0x7f090005;
+        public static final int CheckBox04=0x7f090004;
+        public static final int CheckBox05=0x7f090003;
+        public static final int CheckBox06=0x7f090002;
+        public static final int CheckBox07=0x7f090001;
+        public static final int CheckBox08=0x7f090000;
+        public static final int action_settings=0x7f09000e;
+        public static final int btn_close=0x7f09000b;
+        public static final int btn_dechiffrer=0x7f09000d;
+        public static final int btn_decryptAct=0x7f090006;
+        public static final int btn_decrypt_cancel=0x7f090007;
+        public static final int btn_encrypt=0x7f09000c;
+        public static final int btn_settings=0x7f090009;
+        public static final int btn_start=0x7f090008;
+        public static final int btn_usr_guide=0x7f09000a;
     }
     public static final class layout {
-        public static final int activity_decryption=0x7f030000;
-        public static final int activity_encryption=0x7f030001;
-        public static final int activity_main=0x7f030002;
-        public static final int activity_starting=0x7f030003;
+        public static final int decryption_activity=0x7f030000;
+        public static final int encryption_activity=0x7f030001;
+        public static final int main_activity=0x7f030002;
+        public static final int splashscreen_activity=0x7f030003;
+        public static final int starting_activity=0x7f030004;
     }
     public static final class menu {
-        public static final int encryption=0x7f070000;
-        public static final int main=0x7f070001;
+        public static final int encryption=0x7f080000;
+        public static final int main=0x7f080001;
     }
     public static final class string {
-        public static final int action_settings=0x7f050001;
-        public static final int app_name=0x7f050000;
-        public static final int btn_annuler=0x7f050007;
-        public static final int btn_chiffrer=0x7f050005;
-        public static final int btn_close=0x7f05000a;
-        public static final int btn_dechiffrer=0x7f050006;
-        public static final int btn_settings=0x7f050004;
-        public static final int btn_start=0x7f050003;
-        public static final int btn_usr_guide=0x7f050009;
-        public static final int hello_world=0x7f050002;
-        public static final int test=0x7f050008;
-        public static final int title_activity_encryption=0x7f05000b;
+        public static final int action_settings=0x7f060007;
+        public static final int app_name=0x7f060000;
+        public static final int btn_annuler=0x7f06000d;
+        public static final int btn_close=0x7f060010;
+        public static final int btn_dechiffrer=0x7f06000c;
+        public static final int btn_encrypt=0x7f06000b;
+        public static final int btn_settings=0x7f06000a;
+        public static final int btn_start=0x7f060009;
+        public static final int btn_usr_guide=0x7f06000f;
+        public static final int current_dir=0x7f060006;
+        public static final int dirname_app_name=0x7f060001;
+        public static final int dirnameinput_cmd_return=0x7f060003;
+        public static final int dirnameinput_hint=0x7f060004;
+        public static final int hello_world=0x7f060008;
+        public static final int menu_new_folder=0x7f060002;
+        public static final int test=0x7f06000e;
+        public static final int title_activity_encryption=0x7f060011;
+        public static final int txtview_splashScreenAuthors=0x7f060013;
+        public static final int txtview_splashScreenTitle=0x7f060012;
+        public static final int up_one_level=0x7f060005;
     }
     public static final class style {
         /** 
@@ -86,10 +110,10 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
+        public static final int AppTheme=0x7f070001;
     }
 }

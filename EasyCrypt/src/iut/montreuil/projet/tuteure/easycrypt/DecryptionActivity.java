@@ -1,4 +1,4 @@
-package iut.montreuil.projet.tuteure.easycrypt.view;
+package iut.montreuil.projet.tuteure.easycrypt;
 
 import iut.montreuil.projet.tuteure.easycrypt.R;
 import iut.montreuil.projet.tuteure.easycrypt.R.id;
@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 
-public class Dechiffrement extends Activity{
+public class DecryptionActivity extends Activity{
 
 	private CheckBox checkBox1;
 	private CheckBox checkBox2;
@@ -21,7 +21,7 @@ public class Dechiffrement extends Activity{
 	
 	protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main_activity);
         this.checkBox1 = (CheckBox) findViewById(id.CheckBox03);
         this.checkBox2 = (CheckBox) findViewById(id.CheckBox04);
         this.checkBox3 = (CheckBox) findViewById(id.CheckBox05);
