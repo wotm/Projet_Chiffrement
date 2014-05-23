@@ -8,7 +8,6 @@
     <string name="dirnameinput_hint">Enter a directory-name:</string>
     <string name="up_one_level">..</string>
     <string name="current_dir">.</string>
-    
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="btn_start">Lancer</string>
@@ -22,5 +21,7 @@
     <string name="title_activity_encryption">Encryption</string>
     <string name="txtview_splashScreenTitle">EasyCrypt</string>
     <string name="txtview_splashScreenAuthors">by Benhmidane Rayane et Romain Renard</string>
+    <string name="title_activity_start_manuel">StartManuel</string>
+    <string name="title_activity_settings">SettingsActivity</string>
 
 </resources>

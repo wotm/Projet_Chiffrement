@@ -13,6 +13,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collection;
 
+//Vider le fichier de log après la lecture
 public class FilePathConfigurationFactory {
 
 	public static boolean WriteInConfigFile(Collection<String> paths,

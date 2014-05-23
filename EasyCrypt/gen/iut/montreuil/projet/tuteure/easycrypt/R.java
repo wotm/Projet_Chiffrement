@@ -39,32 +39,38 @@ public final class R {
         public static final int webtext=0x7f020009;
     }
     public static final class id {
-        public static final int CheckBox03=0x7f090005;
-        public static final int CheckBox04=0x7f090004;
-        public static final int CheckBox05=0x7f090003;
-        public static final int CheckBox06=0x7f090002;
-        public static final int CheckBox07=0x7f090001;
-        public static final int CheckBox08=0x7f090000;
-        public static final int action_settings=0x7f09000e;
-        public static final int btn_close=0x7f09000b;
-        public static final int btn_dechiffrer=0x7f09000d;
-        public static final int btn_decryptAct=0x7f090006;
-        public static final int btn_decrypt_cancel=0x7f090007;
-        public static final int btn_encrypt=0x7f09000c;
-        public static final int btn_settings=0x7f090009;
-        public static final int btn_start=0x7f090008;
-        public static final int btn_usr_guide=0x7f09000a;
+        public static final int CheckBox03=0x7f090007;
+        public static final int CheckBox04=0x7f090006;
+        public static final int CheckBox05=0x7f090005;
+        public static final int CheckBox06=0x7f090004;
+        public static final int CheckBox07=0x7f090003;
+        public static final int CheckBox08=0x7f090002;
+        public static final int action_settings=0x7f090010;
+        public static final int btn_close=0x7f09000d;
+        public static final int btn_dechiffrer=0x7f09000f;
+        public static final int btn_decryptAct=0x7f090008;
+        public static final int btn_decrypt_cancel=0x7f090009;
+        public static final int btn_encrypt=0x7f09000e;
+        public static final int btn_settings=0x7f09000b;
+        public static final int btn_settings_from_start=0x7f090001;
+        public static final int btn_start=0x7f09000a;
+        public static final int btn_usr_guide=0x7f09000c;
+        public static final int textStartingManual=0x7f090000;
     }
     public static final class layout {
-        public static final int decryption_activity=0x7f030000;
-        public static final int encryption_activity=0x7f030001;
-        public static final int main_activity=0x7f030002;
-        public static final int splashscreen_activity=0x7f030003;
-        public static final int starting_activity=0x7f030004;
+        public static final int activity_settings=0x7f030000;
+        public static final int activity_starting_manuel=0x7f030001;
+        public static final int decryption_activity=0x7f030002;
+        public static final int encryption_activity=0x7f030003;
+        public static final int main_activity=0x7f030004;
+        public static final int splashscreen_activity=0x7f030005;
+        public static final int starting_activity=0x7f030006;
     }
     public static final class menu {
         public static final int encryption=0x7f080000;
         public static final int main=0x7f080001;
+        public static final int settings=0x7f080002;
+        public static final int start_manuel=0x7f080003;
     }
     public static final class string {
         public static final int action_settings=0x7f060007;
@@ -84,6 +90,8 @@ public final class R {
         public static final int menu_new_folder=0x7f060002;
         public static final int test=0x7f06000e;
         public static final int title_activity_encryption=0x7f060011;
+        public static final int title_activity_settings=0x7f060015;
+        public static final int title_activity_start_manuel=0x7f060014;
         public static final int txtview_splashScreenAuthors=0x7f060013;
         public static final int txtview_splashScreenTitle=0x7f060012;
         public static final int up_one_level=0x7f060005;
