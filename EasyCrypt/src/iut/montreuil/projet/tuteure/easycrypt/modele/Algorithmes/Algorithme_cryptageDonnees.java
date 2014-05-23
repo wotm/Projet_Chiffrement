@@ -1,3 +1,4 @@
+package iut.montreuil.projet.tuteure.easycrypt.modele.Algorithmes;
 
 public class Algorithme_cryptageDonnees {
 	

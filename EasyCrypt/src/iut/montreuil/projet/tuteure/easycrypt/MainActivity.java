@@ -11,6 +11,12 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class MainActivity extends Activity {
+
+
+	public static final String PathConfigurationPathsFiles = System.getProperty("user.dir")+"/.EasyCrypt-paths-configs";
+
+	
+	
 	private Button btn_start;
 	private Button btn_settings;
 	private Button btn_manual;
@@ -26,6 +32,8 @@ public class MainActivity extends Activity {
         this.btn_exit = (Button) findViewById(id.btn_close);
     
         this.initialiserBoutons();
+                
+        
     }
 
     @Override
@@ -42,5 +50,17 @@ public class MainActivity extends Activity {
 				startActivity(intent);
 			}
 		});
+    }
+    
+    //A retirer
+    private void printEnvironmentsVariable() {
+
+        for (Object key : System.getenv().keySet()) {
+			System.out.println(key+" => "+System.getProperty((String)key));
+		}
+        
+        for (Object key : System.getProperties().keySet()) {
+			System.out.println(key+" => "+System.getProperty((String)key));
+		}
     }
 }

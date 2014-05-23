@@ -1,3 +1,4 @@
+package iut.montreuil.projet.tuteure.easycrypt.modele.Algorithmes;
 
 
 // L'algorithme consiste à ajouter un chiffre (+8) à la lettre et ajouter une lettre sur la droite de chaque lettre déjà présente. 
