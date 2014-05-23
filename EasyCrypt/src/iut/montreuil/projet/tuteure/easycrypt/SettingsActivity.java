@@ -5,6 +5,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
 public class SettingsActivity extends Activity {
 
@@ -13,6 +16,15 @@ public class SettingsActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_settings);
 		
+		Button btn_confirmation = (Button) findViewById(R.id.btn_confirmation_in_settings);
+		btn_confirmation.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				
+				onBackPressed(); // return always on the mainActivity.
+			}
+		});
 		
 	}
 

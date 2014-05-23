@@ -39,23 +39,24 @@ public final class R {
         public static final int webtext=0x7f020009;
     }
     public static final class id {
-        public static final int CheckBox03=0x7f090007;
-        public static final int CheckBox04=0x7f090006;
-        public static final int CheckBox05=0x7f090005;
-        public static final int CheckBox06=0x7f090004;
-        public static final int CheckBox07=0x7f090003;
-        public static final int CheckBox08=0x7f090002;
-        public static final int action_settings=0x7f090010;
-        public static final int btn_close=0x7f09000d;
-        public static final int btn_dechiffrer=0x7f09000f;
-        public static final int btn_decryptAct=0x7f090008;
-        public static final int btn_decrypt_cancel=0x7f090009;
-        public static final int btn_encrypt=0x7f09000e;
-        public static final int btn_settings=0x7f09000b;
-        public static final int btn_settings_from_start=0x7f090001;
-        public static final int btn_start=0x7f09000a;
-        public static final int btn_usr_guide=0x7f09000c;
-        public static final int textStartingManual=0x7f090000;
+        public static final int CheckBox03=0x7f090008;
+        public static final int CheckBox04=0x7f090007;
+        public static final int CheckBox05=0x7f090006;
+        public static final int CheckBox06=0x7f090005;
+        public static final int CheckBox07=0x7f090004;
+        public static final int CheckBox08=0x7f090003;
+        public static final int action_settings=0x7f090011;
+        public static final int btn_close=0x7f09000e;
+        public static final int btn_confirmation_in_settings=0x7f090000;
+        public static final int btn_dechiffrer=0x7f090010;
+        public static final int btn_decryptAct=0x7f090009;
+        public static final int btn_decrypt_cancel=0x7f09000a;
+        public static final int btn_encrypt=0x7f09000f;
+        public static final int btn_settings=0x7f09000c;
+        public static final int btn_settings_from_start=0x7f090002;
+        public static final int btn_start=0x7f09000b;
+        public static final int btn_usr_guide=0x7f09000d;
+        public static final int textStartingManual=0x7f090001;
     }
     public static final class layout {
         public static final int activity_settings=0x7f030000;

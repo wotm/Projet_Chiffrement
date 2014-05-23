@@ -20,8 +20,11 @@ import android.provider.MediaStore.Files;
 //OK
 public class EncryptionFactory {
 
-	public boolean Encrypt(Collection<String> listePaths) {
+	//return the main paths with encrypted name, after encrypting reccursivly all the files in the pathlist 
+	public Collection<String> Encrypt(Collection<String> listePaths) {
 
+		ArrayList<String> listMainPathEncrypted = new ArrayList<String>();
+		
 		for (String path : listePaths) {
 			File fichier = new File(path);
 
@@ -41,7 +44,7 @@ public class EncryptionFactory {
 									fichier)), newBytes);
 				} catch (FileNotFoundException e) {
 					e.printStackTrace();
-					return false; // I don't throw the exception because this
+					return new ArrayList<String>(); // I don't throw the exception because this
 									// case should never arrive
 				}
 
@@ -51,15 +54,19 @@ public class EncryptionFactory {
 				File encryptedFile = new File(fichier.getParent() + "/"
 						+ FileNameEncrypted);
 				fichier.renameTo(encryptedFile);
-
+			
+				listMainPathEncrypted.add(encryptedFile.getAbsolutePath());
 			}
 		}
-
-		return true;
+		
+		return listMainPathEncrypted;
 	}
 
-	public boolean Decrypt(Collection<String> listePaths) {
+	//return the main paths with normal name (uncrypted), after uncrypting reccursivly all the files in the pathlist
+	public Collection<String> Decrypt(Collection<String> listePaths) {
 
+		ArrayList<String> listMainPathUncrypted = new ArrayList<String>();
+		
 		for (String path : listePaths) {
 			File fichier = new File(path);
 
@@ -79,7 +86,7 @@ public class EncryptionFactory {
 									fichier)), newBytes);
 				} catch (FileNotFoundException e) {
 					e.printStackTrace();
-					return false; // I don't throw the exception because this
+					return new ArrayList<String>(); // I don't throw the exception because this
 									// case should never arrive
 				}
 
@@ -90,10 +97,12 @@ public class EncryptionFactory {
 						+ FileNameUncrypted);
 				fichier.renameTo(encryptedFile);
 
+				listMainPathUncrypted.add(encryptedFile.getAbsolutePath());
+				
 			}
 		}
 
-		return true;
+		return listMainPathUncrypted;
 	}
 
 }

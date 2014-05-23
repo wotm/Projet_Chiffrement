@@ -13,8 +13,11 @@ import android.widget.Button;
 public class MainActivity extends Activity {
 
 
-	public static final String PathConfigurationPathsFiles = System.getProperty("user.dir")+"/.EasyCrypt-paths-configs";
-
+	public static final String PathDossierConfigEasyCrypt = System.getProperty("user.dir") + "/.EasyCrypt";
+	public static final String PathConfigurationPathsFiles = PathDossierConfigEasyCrypt+"/.EasyCrypt-paths-configs";
+	//Fichier utiliser pour plannifier les fichiers qui seront chiffrés à partir du widget.
+	public static final String PathConfigPathsPlannifCrypt = PathDossierConfigEasyCrypt+"/.EasyCrypt-plannif-Crypts";
+	public static final String PathConfigWidgetModeCrypt = PathDossierConfigEasyCrypt+"/.EasyCrypt-Widget-Mode-Crypt";
 	
 	
 	private Button btn_start;
@@ -50,6 +53,16 @@ public class MainActivity extends Activity {
 				startActivity(intent);
 			}
 		});
+    	
+    	this.btn_settings.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+				startActivity(intent);
+			}
+		});
+    	
     }
     
     //A retirer

@@ -1,5 +1,7 @@
 package iut.montreuil.projet.tuteure.easycrypt;
 
+import java.io.File;
+
 import iut.montreuil.projet.tuteure.easycrypt.R;
 import android.app.Activity;
 import android.content.Intent;
@@ -20,6 +22,9 @@ public class SplashScreenActivity extends Activity {
 		
 		final SplashScreenActivity sPlashScreen = this;
 
+		//Auto-creation of the application folder
+		new File(MainActivity.PathDossierConfigEasyCrypt).mkdirs();
+		
 		// Thread pour l'affichage du SplashScreen
 		splashTread = new Thread() {
 			@Override
