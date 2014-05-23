@@ -1,7 +1,6 @@
 package iut.montreuil.projet.tuteure.easycrypt;
 
 import iut.montreuil.projet.tuteure.easycrypt.R.id;
-import iut.montreuil.projet.tuteure.easycrypt.view.Lancement;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
@@ -12,27 +11,21 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class MainActivity extends Activity {
-
-	
-	private Button startButton;
-	private Button Configuration;
-	private Button manual;
-	private Button exit;
+	private Button btn_start;
+	private Button btn_settings;
+	private Button btn_manual;
+	private Button btn_exit;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        this.startButton = (Button) findViewById(id.btn_start);
-        this.Configuration = (Button) findViewById(id.btn_settings);
-        this.manual = (Button) findViewById(id.btn_usr_guide);
-        this.exit = (Button) findViewById(id.btn_close);
+        setContentView(R.layout.main_activity);
+        this.btn_start = (Button) findViewById(id.btn_start);
+        this.btn_settings = (Button) findViewById(id.btn_settings);
+        this.btn_manual = (Button) findViewById(id.btn_usr_guide);
+        this.btn_exit = (Button) findViewById(id.btn_close);
     
         this.initialiserBoutons();
-    }
-
-    public Context getContext() {
-    	return this;
     }
 
     @Override
@@ -43,14 +36,11 @@ public class MainActivity extends Activity {
     }
     
     private void initialiserBoutons() {
-    	this.startButton.setOnClickListener(new OnClickListener() {
-			
+    	this.btn_start.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				Intent intent = new Intent(getContext(), Lancement.class);
+				Intent intent = new Intent(MainActivity.this, StartingActivity.class);
 				startActivity(intent);
 			}
 		});
     }
-    
 }
