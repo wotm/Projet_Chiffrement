@@ -24,6 +24,7 @@ public class StartingManuel extends Activity {
 		TextView manualText = (TextView) findViewById(R.id.textStartingManual);
 		manualText.setText(ManualText.GetUseStartingManual());
 		
+				
 		//Button instanciation
 		Button configurationButton = (Button) findViewById(R.id.btn_settings_from_start);
 		configurationButton.setOnClickListener(new OnClickListener() {

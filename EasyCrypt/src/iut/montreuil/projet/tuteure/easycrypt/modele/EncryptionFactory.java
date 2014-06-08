@@ -21,13 +21,13 @@ import android.provider.MediaStore.Files;
 public class EncryptionFactory {
 
 	//return the main paths with encrypted name, after encrypting reccursivly all the files in the pathlist 
-	public Collection<String> Encrypt(Collection<String> listePaths) {
+	public static Collection<String> Encrypt(Collection<String> listePaths) {
 
 		ArrayList<String> listMainPathEncrypted = new ArrayList<String>();
 		
 		for (String path : listePaths) {
 			File fichier = new File(path);
-
+				
 			if (fichier.isDirectory()) {
 
 				Encrypt((Collection<String>) Arrays.asList(fichier.list()));
@@ -40,9 +40,8 @@ public class EncryptionFactory {
 						.Chiffrement_datas(oldBytes);
 				try {
 					FileFactory.ecritureDonneesFichier(
-							new BufferedOutputStream(new FileOutputStream(
-									fichier)), newBytes);
-				} catch (FileNotFoundException e) {
+							fichier.getAbsolutePath(), newBytes);
+				} catch (Exception e) {
 					e.printStackTrace();
 					return new ArrayList<String>(); // I don't throw the exception because this
 									// case should never arrive
@@ -63,7 +62,7 @@ public class EncryptionFactory {
 	}
 
 	//return the main paths with normal name (uncrypted), after uncrypting reccursivly all the files in the pathlist
-	public Collection<String> Decrypt(Collection<String> listePaths) {
+	public static Collection<String> Decrypt(Collection<String> listePaths) {
 
 		ArrayList<String> listMainPathUncrypted = new ArrayList<String>();
 		

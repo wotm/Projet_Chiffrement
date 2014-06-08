@@ -62,6 +62,7 @@ public class FileFactory {
 	public static boolean ecritureDonneesFichier(BufferedOutputStream writer, byte [] datas) {
 		try {
 			writer.write(datas);
+			writer.flush();
 			return true;
 		} catch (IOException e) {
 			e.printStackTrace();

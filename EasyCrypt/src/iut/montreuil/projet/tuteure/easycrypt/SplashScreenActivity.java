@@ -1,8 +1,18 @@
 package iut.montreuil.projet.tuteure.easycrypt;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 import iut.montreuil.projet.tuteure.easycrypt.R;
+import iut.montreuil.projet.tuteure.easycrypt.modele.FilePathConfigurationFactory;
+import iut.montreuil.projet.tuteure.easycrypt.modele.TacheChiffrement;
+import iut.montreuil.projet.tuteure.easycrypt.modele.TacheChiffrement.TypeTache;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,9 +31,44 @@ public class SplashScreenActivity extends Activity {
 
 		
 		final SplashScreenActivity sPlashScreen = this;
+		
+		
 
 		//Auto-creation of the application folder
-		new File(MainActivity.PathDossierConfigEasyCrypt).mkdirs();
+		new File(getFilesDir() + MainActivity.PathConfigWidgetModeCrypt).getParentFile().mkdirs();
+		new File(getFilesDir() + MainActivity.PathConfigFilesToDecrypt).getParentFile().mkdirs();
+		
+		//Tests
+		
+		TacheChiffrement tache = new TacheChiffrement(this, TypeTache.ByGUI);
+		tache.execute("R1","R2", "et R3 loool");
+		
+//		
+//		try {
+//			
+//			File fe = new File(getFilesDir() + "/testFichier.txt");
+//			FileWriter wr = new FileWriter(fe);
+//			wr.write("Hey baby !! ");
+//			wr.flush();
+//			wr.close();
+//			
+//			File f = new File(getFilesDir() + MainActivity.PathConfigPathsWidgetPlannifCrypt);
+//			FileWriter writer = new FileWriter(f);
+//			writer.write(new File( getFilesDir() + "/testFichier.txt").getAbsolutePath());
+//			writer.flush();
+//			writer.close();
+//			
+//			if(!FilePathConfigurationFactory.ExtractWidgetModeCrypt(this))
+//				FilePathConfigurationFactory.SwitchWidgetMode(this);
+//		} catch (Exception e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}		
+		
+		//Fin du test
+		
+		
+		
 		
 		// Thread pour l'affichage du SplashScreen
 		splashTread = new Thread() {

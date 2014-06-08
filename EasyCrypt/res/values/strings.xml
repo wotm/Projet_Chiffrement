@@ -23,5 +23,6 @@
     <string name="txtview_splashScreenAuthors">by Benhmidane Rayane et Romain Renard</string>
     <string name="title_activity_start_manuel">StartManuel</string>
     <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_manual">ManualActivity</string>
 
 </resources>
