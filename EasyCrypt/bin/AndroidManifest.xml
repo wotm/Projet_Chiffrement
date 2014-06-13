@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name="iut.montreuil.projet.tuteure.easycrypt.StartingActivity"></activity>
-        <activity android:name="iut.montreuil.projet.tuteure.easycrypt.AndroidFilesExplorerActivity"></activity>
+       <activity android:name="iut.montreuil.projet.tuteure.easycrypt.AndroidFilesExplorerActivity"></activity>
         <activity android:name="iut.montreuil.projet.tuteure.easycrypt.EncryptionActivity"></activity>
         <activity android:name="iut.montreuil.projet.tuteure.easycrypt.MainActivity"></activity>
     </application>

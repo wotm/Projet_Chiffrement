@@ -10,7 +10,7 @@
         android:layout_gravity="center_horizontal"
         android:text="@string/txtview_splashScreenTitle"
         android:textColor="#E6E6FA"
-        android:textSize="80sp" 
+        android:textSize="70sp" 
         android:layout_marginTop="100dp" 
         android:textStyle="bold|italic" />
     
