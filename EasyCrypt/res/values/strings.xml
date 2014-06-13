@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">EasyCrypt</string>
+ 	<string name="image">Image</string>
+  
+    <string name="dirname_app_name">Android Files Explorer</string>
+    <string name="menu_new_folder">New Folder</string>
+    <string name="dirnameinput_cmd_return">Save</string>
+    <string name="dirnameinput_hint">Enter a directory-name:</string>
+    <string name="up_one_level">..</string>
+    <string name="current_dir">.</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="btn_start">Lancer</string>
+    <string name="btn_settings">Configurer</string>
+    <string name="btn_encrypt">Chiffrer</string>
+    <string name="btn_dechiffrer">Déchiffrer</string>
+    <string name="btn_annuler">Annuler</string>
+    <string name="test">vidéo-vacances-été-2013</string>
+    <string name="btn_usr_guide">Manuel</string>
+    <string name="btn_close">Quitter</string>
+    <string name="title_activity_encryption">Encryption</string>
+    <string name="txtview_splashScreenTitle">EasyCrypt</string>
+    <string name="txtview_splashScreenAuthors">by Rayane Benhmidane et Romain Renard</string>
+    <string name="title_activity_start_manuel">StartManuel</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_manual">ManualActivity</string>
+</resources>
