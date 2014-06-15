@@ -23,13 +23,11 @@
             </intent-filter>
         </activity>
         <activity android:name="iut.montreuil.projet.tuteure.easycrypt.StartingActivity"></activity>
-       <activity android:name="iut.montreuil.projet.tuteure.easycrypt.AndroidFilesExplorerActivity"></activity>
         <activity android:name="iut.montreuil.projet.tuteure.easycrypt.EncryptionActivity"></activity>
         <activity android:name="iut.montreuil.projet.tuteure.easycrypt.MainActivity"></activity>
-        <activity android:name="iut.montreuil.projet.tuteure.easycrypt.StartingManuel" >
-        </activity>
-        <activity android:name="iut.montreuil.projet.tuteure.easycrypt.SettingsActivity" >
-        </activity>
+        <activity android:name="iut.montreuil.projet.tuteure.easycrypt.StartingManuel"></activity>
+        <activity android:name="iut.montreuil.projet.tuteure.easycrypt.SettingsActivity"></activity>
+        <activity android:name="iut.montreuil.projet.tuteure.easycrypt.DecryptionActivity"></activity>
         <receiver android:name="iut.montreuil.projet.tuteure.easycrypt.modele.WidgetLanceur" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -45,5 +43,4 @@
             android:label="@string/title_activity_manual" >
         </activity>
     </application>
-
 </manifest>

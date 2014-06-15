@@ -3,76 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin" >
-
-    <CheckBox
-        android:id="@+id/CheckBox08"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.04"
-        android:text="@string/test" />
-
-    <CheckBox
-        android:id="@+id/CheckBox07"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.04"
-        android:text="@string/test" />
-
-    <CheckBox
-        android:id="@+id/CheckBox06"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.04"
-        android:text="@string/test" />
-
-    <CheckBox
-        android:id="@+id/CheckBox05"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.04"
-        android:text="@string/test" />
-
-    <CheckBox
-        android:id="@+id/CheckBox04"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.04"
-        android:text="@string/test" />
-
-    <CheckBox
-        android:id="@+id/CheckBox03"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.03"
-        android:text="@string/test" />
+    android:orientation="vertical">
 
     <Button
-        android:id="@+id/btn_decryptAct"
-        android:layout_width="218dp"
+        android:id="@+id/btn_decrypt_action"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
-        android:gravity="center"
         android:text="@string/btn_dechiffrer"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp"
-        android:typeface="monospace" />
-
-    <Button
-        android:id="@+id/btn_decrypt_cancel"
-        android:layout_width="218dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
-        android:gravity="center"
-        android:text="@string/btn_annuler"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp"
-        android:typeface="monospace" />
+        />        
+    
+     <ListView
+        android:id="@+id/list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

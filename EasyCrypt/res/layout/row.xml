@@ -5,12 +5,20 @@
     android:orientation="horizontal"
     android:descendantFocusability="blocksDescendants">
         
-        <TextView 
-            android:id="@+id/filePathTxtView"
+    	<ImageView
+    	    android:contentDescription="icone"
+    	    android:id="@+id/fileIconDrawable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="5dp"
+    	    />
+    	
+        <TextView 
+            android:id="@+id/filePathTxtView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
             /> 
             
         <CheckBox 

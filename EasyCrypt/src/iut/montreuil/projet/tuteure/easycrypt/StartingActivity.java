@@ -17,7 +17,7 @@ public class StartingActivity extends Activity {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.starting_activity);
 	        this.btn_encrypt = (Button) findViewById(id.btn_encrypt);
-//	        this.btn_decrypt = (Button) findViewById(id.btn_decrypt);
+	        this.btn_decrypt = (Button) findViewById(id.btn_decrypt);
 	        
 	        initialiserBoutons();
 	    }
@@ -25,9 +25,17 @@ public class StartingActivity extends Activity {
 	 private void initialiserBoutons() {
 	    	this.btn_encrypt.setOnClickListener(new OnClickListener() {
 				public void onClick(View arg0) {
-					Intent intent = new Intent(StartingActivity.this, AndroidFilesExplorerActivity.class);
+					Intent intent = new Intent(StartingActivity.this, EncryptionActivity.class);
+					startActivity(intent);
+				}
+			});
+	    	
+	    	this.btn_decrypt.setOnClickListener(new OnClickListener() {
+				public void onClick(View arg0) {
+					Intent intent = new Intent(StartingActivity.this, DecryptionActivity.class);
 					startActivity(intent);
 				}
 			});
 	    }
+	 
 }

@@ -14,10 +14,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="btn_start">Lancer</string>
     <string name="btn_settings">Configurer</string>
-    <string name="btn_encrypt">Chiffrer</string>
-    <string name="btn_dechiffrer">Déchiffrer</string>
+    <string name="btn_encrypt">Chiffrement</string>
+    <string name="btn_dechiffrer">Déchiffrement</string>
     <string name="btn_annuler">Annuler</string>
-    <string name="test">vidéo-vacances-été-2013</string>
     <string name="btn_usr_guide">Manuel</string>
     <string name="btn_close">Quitter</string>
     <string name="title_activity_encryption">Encryption</string>
