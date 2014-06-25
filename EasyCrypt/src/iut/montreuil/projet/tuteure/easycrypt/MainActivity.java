@@ -1,6 +1,8 @@
 package iut.montreuil.projet.tuteure.easycrypt;
 
 import iut.montreuil.projet.tuteure.easycrypt.R.id;
+import iut.montreuil.projet.tuteure.easycrypt.modele.FilePathConfigurationFactory;
+import android.media.ExifInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -11,6 +13,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
@@ -34,6 +37,8 @@ public class MainActivity extends Activity {
 	private Button btn_manual;
 	private Button btn_exit;
 	
+	private TextView textModeCrypt;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,10 +47,29 @@ public class MainActivity extends Activity {
         this.btn_settings = (Button) findViewById(id.btn_settings);
         this.btn_manual = (Button) findViewById(id.btn_usr_guide);
         this.btn_exit = (Button) findViewById(id.btn_close);
+        this.textModeCrypt = (TextView) findViewById(id.TextModeCrypt);
     
         this.initialiserBoutons();
         
         
+    }
+    
+    @Override
+    protected void onResume() {
+    	// TODO Auto-generated method stub
+    	super.onResume();
+    	String textModeCrypt;
+    	try {
+			if(FilePathConfigurationFactory.ExtractWidgetModeCrypt(getApplicationContext()))
+				textModeCrypt = "Mode Widget : Chiffrement";
+			else
+				textModeCrypt = "Mode Widget : Déchiffrement";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			textModeCrypt = "Problème lecture mode Widget";
+		}
+    	this.textModeCrypt.setText(textModeCrypt);
     }
 
     @Override
@@ -78,6 +102,13 @@ public class MainActivity extends Activity {
 			public void onClick(View arg0) {
 				Intent intent = new Intent(MainActivity.this, ManualActivity.class);
 				startActivity(intent);
+			}
+		});
+    	
+    	this.btn_exit.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				onBackPressed();
 			}
 		});
     }
@@ -119,4 +150,5 @@ public class MainActivity extends Activity {
 		Toast.makeText(con,text,Toast.LENGTH_LONG).show();
 		
 	}
+	
 }

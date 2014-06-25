@@ -13,7 +13,7 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="btn_start">Lancer</string>
-    <string name="btn_settings">Configurer</string>
+    <string name="btn_settings">Widget</string>
     <string name="btn_encrypt">Chiffrement</string>
     <string name="btn_dechiffrer">Déchiffrement</string>
     <string name="btn_annuler">Annuler</string>

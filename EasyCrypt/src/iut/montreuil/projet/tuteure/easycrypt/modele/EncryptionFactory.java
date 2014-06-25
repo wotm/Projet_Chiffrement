@@ -20,17 +20,23 @@ import android.provider.MediaStore.Files;
 //OK
 public class EncryptionFactory {
 
+	
+	
 	//return the main paths with encrypted name, after encrypting reccursivly all the files in the pathlist 
 	public static Collection<String> Encrypt(Collection<String> listePaths) {
-
+		return Encrypt(listePaths, 0);
+	}
+	
+	private static Collection<String> Encrypt(Collection<String> listePaths, int niveau) {
 		ArrayList<String> listMainPathEncrypted = new ArrayList<String>();
 		
 		for (String path : listePaths) {
 			File fichier = new File(path);
 				
 			if (fichier.isDirectory()) {
-
-				Encrypt((Collection<String>) Arrays.asList(fichier.list()));
+				
+				ArrayList<String> childList = GetChildsAbsolutePaths(fichier);
+				Encrypt((Collection<String>) childList, niveau+1);
 
 			} else {
 
@@ -46,24 +52,39 @@ public class EncryptionFactory {
 					return new ArrayList<String>(); // I don't throw the exception because this
 									// case should never arrive
 				}
-
-				// Renaming File
-				String FileNameEncrypted = Algorithme_Chiffrement_Nom_Fichier
-						.Algo_Cryptage(fichier.getName());
-				File encryptedFile = new File(fichier.getParent() + "/"
-						+ FileNameEncrypted);
-				fichier.renameTo(encryptedFile);
 			
-				listMainPathEncrypted.add(encryptedFile.getAbsolutePath());
 			}
+			// Renaming File or folder
+			String FileNameEncrypted = Algorithme_Chiffrement_Nom_Fichier
+					.Algo_Cryptage(fichier.getName());
+			File encryptedFile = new File(fichier.getParent() + "/"
+					+ FileNameEncrypted);
+			boolean renomme = fichier.renameTo(encryptedFile);
+		
+			if(niveau == 0) {
+				if(renomme)// || fichier.list().length > 0
+					listMainPathEncrypted.add(encryptedFile.getAbsolutePath());
+			}
+				
 		}
 		
 		return listMainPathEncrypted;
 	}
 
+	private static ArrayList<String> GetChildsAbsolutePaths(File file) {
+		ArrayList<String> paths = new ArrayList<String>();
+		for (String nameChild : file.list()) {
+			paths.add(file.getAbsolutePath()+"/"+nameChild);
+		}
+		return paths;
+	}
+
 	//return the main paths with normal name (uncrypted), after uncrypting reccursivly all the files in the pathlist
 	public static Collection<String> Decrypt(Collection<String> listePaths) {
-
+		return Decrypt(listePaths, 0);
+	}
+	
+	private static Collection<String> Decrypt(Collection<String> listePaths, int niveau) {
 		ArrayList<String> listMainPathUncrypted = new ArrayList<String>();
 		
 		for (String path : listePaths) {
@@ -71,7 +92,8 @@ public class EncryptionFactory {
 
 			if (fichier.isDirectory()) {
 
-				Decrypt((Collection<String>) Arrays.asList(fichier.list()));
+				ArrayList<String> childList = GetChildsAbsolutePaths(fichier);
+				Decrypt((Collection<String>) childList, niveau+1);
 
 			} else {
 
@@ -88,17 +110,20 @@ public class EncryptionFactory {
 					return new ArrayList<String>(); // I don't throw the exception because this
 									// case should never arrive
 				}
-
-				// Renaming File
-				String FileNameUncrypted = Algorithme_Chiffrement_Nom_Fichier
-						.Algo_Decryptage(fichier.getName());
-				File encryptedFile = new File(fichier.getParent() + "/"
-						+ FileNameUncrypted);
-				fichier.renameTo(encryptedFile);
-
-				listMainPathUncrypted.add(encryptedFile.getAbsolutePath());
+		
 				
 			}
+			// Renaming File or folders
+			String FileNameUncrypted = Algorithme_Chiffrement_Nom_Fichier
+					.Algo_Decryptage(fichier.getName());
+			File encryptedFile = new File(fichier.getParent() + "/"
+					+ FileNameUncrypted);
+			fichier.renameTo(encryptedFile);
+
+			if(niveau == 0)
+				listMainPathUncrypted.add(encryptedFile.getAbsolutePath());
+			
+			
 		}
 
 		return listMainPathUncrypted;

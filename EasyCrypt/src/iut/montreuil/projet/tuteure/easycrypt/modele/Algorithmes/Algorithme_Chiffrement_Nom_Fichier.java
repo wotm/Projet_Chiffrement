@@ -1,15 +1,19 @@
 package iut.montreuil.projet.tuteure.easycrypt.modele.Algorithmes;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 
 // L'algorithme consiste à ajouter un chiffre (+8) à la lettre et ajouter une lettre sur la droite de chaque lettre déjà présente. 
 // Cette dernière lettre ajoutée vaut la lettre de gauche + le premier chiffre ajouté multiplié par 2 (chiffreAdditione*2)
 
 public class Algorithme_Chiffrement_Nom_Fichier {
 
+	private static ArrayList<Character> ASCII = MyASCII.asciiCorrectChars();
 	
 	private static final int chiffreAdditione = 8;
-	private static final int limiteMinAscii = 32;
-	private static final int limiteMaxAscii = 125;
+	private static final int limiteMinAscii = 0;
+	private static final int limiteMaxAscii = ASCII.size()-1;
 
 	
 	
@@ -30,17 +34,20 @@ public class Algorithme_Chiffrement_Nom_Fichier {
 	}
 		
 	private static char AdditionnerCaracteresSelonAsciiEtLimite(char caractere, int chiffreAdition) {
-		char charFinal;
+		int indexCharFinal;
 		
-		charFinal = (char) ((int) caractere + chiffreAdition);
-		if(charFinal > limiteMaxAscii) {			
-			charFinal = AdditionnerCaracteresSelonAsciiEtLimite((char)(limiteMinAscii-1), (int) charFinal - limiteMaxAscii);
+		int currentCaracterIndex = caractere < 0 ? -1 : ASCII.indexOf(caractere );
+		
+		indexCharFinal = (currentCaracterIndex + chiffreAdition);
+		if(indexCharFinal > limiteMaxAscii) {			
+			indexCharFinal = AdditionnerCaracteresSelonAsciiEtLimite((char)(limiteMinAscii-1), (int) indexCharFinal - limiteMaxAscii);
 			// pareil que charFinal = (char) (limiteMinDecimal + ((int) charFinal - limiteMaxDecimal));
 			// sauf que la premiere est meilleure car elle gère les cas où chiffreAdition est très grand, ce que ne fait pas l'autre qui renverra peut etre une erreur (exception) et est indecryptable.
+			
+		}else {
+			indexCharFinal = ASCII.get(indexCharFinal);
 		}
-		if((int) charFinal == 47) charFinal = (char) 126; // = ~
-		
-		return charFinal;
+		return (char) indexCharFinal;
 	}
 	
 	private static String ajouterLettreADroiteDunChar(String mot, int indiceChar) {
@@ -73,20 +80,21 @@ public class Algorithme_Chiffrement_Nom_Fichier {
 	}
 	
 	private static char SoustraireCaracteresSelonAsciiEtLimite(char caractere, int chiffreAdition) {
-		char charFinal;
+		int indexCharFinal;
 		
-		charFinal = (char) ((int) caractere - chiffreAdition);
+		int currentCaracterIndex = ASCII.contains(caractere) ? ASCII.indexOf(caractere ) : ASCII.size();
 		
-		if((int) charFinal == 126) return charFinal = (char) 47-chiffreAdditione;
-		
-		if(charFinal < limiteMinAscii) {			
-			charFinal = SoustraireCaracteresSelonAsciiEtLimite((char)(limiteMaxAscii+1), (limiteMinAscii - (int) charFinal));
+		indexCharFinal = ((int) currentCaracterIndex - chiffreAdition);
+				
+		if(indexCharFinal < limiteMinAscii) {			
+			indexCharFinal = SoustraireCaracteresSelonAsciiEtLimite((char)(-1), (limiteMinAscii - (int) indexCharFinal));
 			// pareil que charFinal = (char) (limiteMinDecimal + ((int) charFinal - limiteMaxDecimal));
 			// sauf que la premiere est meilleure car elle gère les cas où chiffreAdition est très grand, ce que ne fait pas l'autre qui renverra peut etre une erreur (exception) et est indecryptable.
-		}
+		}else
+			indexCharFinal = ASCII.get(indexCharFinal);
 		
 		
-		return charFinal;
+		return (char) indexCharFinal;
 	}
 	
 	private static String retirerLettreADroiteDunChar(String mot, int indiceChar) {

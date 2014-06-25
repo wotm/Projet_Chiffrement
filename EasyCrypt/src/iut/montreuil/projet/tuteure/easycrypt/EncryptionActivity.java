@@ -1,5 +1,8 @@
 package iut.montreuil.projet.tuteure.easycrypt;
 
+import iut.montreuil.projet.tuteure.easycrypt.modele.TacheChiffrement;
+import iut.montreuil.projet.tuteure.easycrypt.modele.TacheChiffrement.TypeTache;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,6 +14,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -58,14 +62,17 @@ public class EncryptionActivity extends Activity {
 		        	@Override
 		        	public void onClick(View v) {
 					    //BUILDING OF THE FILES LIST TO ENCRYPT
-//					    filesToEncryptList = fileAdapter.getCheckedItems();
-//					    for(int i = 0; i < filesToEncryptList.size(); i++) {
-					    	
-					        Toast.makeText(
-								      getApplicationContext(), 
-								      "Vos fichiers ont bien été chiffrés !", 
-								      Toast.LENGTH_LONG).show();
-//					    }
+					    filesToEncryptList = fileAdapter.getCheckedItems();
+					
+					    System.out.println("Liste des fichiers :");
+					    for(int i = 0; i < filesToEncryptList.size(); i++) {
+					    	System.out.println("Chemin "+(i+1)+" = "+filesToEncryptList.get(i));
+					    }
+					    TacheChiffrement t = new TacheChiffrement(getApplicationContext(), TypeTache.ByGUI, true);
+						t.execute(filesToEncryptList.toArray(new String[filesToEncryptList.size()]));
+						onBackPressed();
+						
+					    
 					  }
 		        	});
 		        	
@@ -99,7 +106,7 @@ public class EncryptionActivity extends Activity {
 		  
 		/**** BEGINNING OF FILES BROWSER ****/
 		private void browseToRoot() {
-			browseTo(new File("/"));
+			browseTo(new File(Environment.getExternalStorageDirectory().getPath()));
 		}
 		
 		private void browseTo(final File aFile) {
@@ -113,6 +120,8 @@ public class EncryptionActivity extends Activity {
 		}
 		
 		private void fill(File[] files) {
+			
+			
 			this.filesEntries.clear();
 			if (currentFile.getParent() != null) {
 				upOneLevelIcon.setVisibility(View.VISIBLE);
@@ -136,13 +145,18 @@ public class EncryptionActivity extends Activity {
 				currentIcon = getResources().getDrawable(R.drawable.text);
 			}
 			imv.setImageDrawable(currentIcon);
-			
-			for (File currentFile : files) {
-				this.filesEntries.add(currentFile);
+			if(files != null) {
+				for (File currentFile : files) {
+					this.filesEntries.add(currentFile);
+				}
+				Collections.sort(this.filesEntries);
+		        fileAdapter = new FileAdapter(this, R.layout.row, R.id.filePathChkBox, filesEntries);
+		        
+			}else {
+				fileAdapter = new FileAdapter(this, R.layout.row, R.id.filePathChkBox, new ArrayList<File>());
 			}
-			Collections.sort(this.filesEntries);
-	        fileAdapter = new FileAdapter(this, R.layout.row, R.id.filePathChkBox, filesEntries);
-	        myListView.setAdapter(fileAdapter);
+			myListView.setAdapter(fileAdapter);
+			
 		}
 		
 	     private boolean checkEndsWithInStringArray(String checkItsEnd,
@@ -216,8 +230,9 @@ public class EncryptionActivity extends Activity {
 		   filePathTxtView.setText(filesEntries.get(position).getAbsolutePath().substring(currentPathStringLenght));
 		   
 		   if (filesEntries.get(position).isDirectory()) {
-			   row.setBackgroundColor(Color.LTGRAY);
-		   }
+			   row.setBackgroundColor(Color.YELLOW);
+		   }else
+			   row.setBackgroundColor(Color.TRANSPARENT);
 
 		   CheckBox filePathChkBox =  (CheckBox) row.findViewById(R.id.filePathChkBox);
 		   filePathChkBox.setTag(position);
