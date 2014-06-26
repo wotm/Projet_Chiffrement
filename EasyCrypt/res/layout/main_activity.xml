@@ -8,7 +8,16 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
-   
+
+    <TextView
+        android:id="@+id/TextModeCrypt"
+        android:layout_width="276dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.09"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:text="Mode Widget : Chiffrement" />
+
     <Button
         android:id="@+id/btn_start"
         android:layout_width="218dp"
@@ -22,7 +31,8 @@
         android:typeface="monospace" 
         android:background="@drawable/rounded_corner" />
     
-        <Button
+
+    <Button
         android:id="@+id/btn_settings"
         android:layout_width="218dp"
         android:layout_height="wrap_content"
@@ -35,7 +45,9 @@
         android:typeface="monospace" 
         android:background="@drawable/rounded_corner" />
         
-        <Button
+       
+
+    <Button
         android:id="@+id/btn_usr_guide"
         android:layout_width="218dp"
         android:layout_height="wrap_content"
@@ -48,7 +60,8 @@
         android:typeface="monospace" 
         android:background="@drawable/rounded_corner" />
         
-         <Button
+
+    <Button
         android:id="@+id/btn_close"
         android:layout_width="218dp"
         android:layout_height="wrap_content"

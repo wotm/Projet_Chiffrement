@@ -16,6 +16,7 @@ import iut.montreuil.projet.tuteure.easycrypt.modele.TacheChiffrement.TypeTache;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.MotionEvent;
 
 public class SplashScreenActivity extends Activity {
@@ -40,8 +41,23 @@ public class SplashScreenActivity extends Activity {
 		
 		//Tests
 		
+		/*MainActivity.printEnvironmentsVariable();
+		MainActivity.printEnvironmentsVariable(this);
+		try{
+
+			File f1 = new File(Environment.getExternalStorageDirectory().getPath() +"/DossierTest/DossierRecursif1/fichier1.alfa");			
+			f1.mkdirs();
+			f1.createNewFile();
+			
+			new File(f1.getParent()+"/rato.bg").createNewFile();
+			new File(f1.getParentFile().getParent()+"/DossierRecursif2/blabla").mkdirs();	
+		} catch(Exception e) {
+			
+		}*/
+		
+		/*
 		TacheChiffrement tache = new TacheChiffrement(this, TypeTache.ByGUI);
-		tache.execute("R1","R2", "et R3 loool");
+		tache.execute("R1","R2", "et R3 loool");*/
 		
 //		
 //		try {

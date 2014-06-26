@@ -20,12 +20,19 @@ public class TacheChiffrement extends AsyncTask<String, String, Boolean>{
 	private TypeTache typeTache;
 	private boolean modeCrypt;
 	
-	
+	//Pour Widget
 	public TacheChiffrement(Context con, TypeTache type) {
 		context = con;
 		this.typeTache = type;
+		try {
+			this.modeCrypt = FilePathConfigurationFactory.ExtractWidgetModeCrypt(context);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
+	//Pour GUI
 	public TacheChiffrement(Context con, TypeTache type, boolean modeCrypt) {
 		context = con;
 		this.typeTache = type;
@@ -35,9 +42,10 @@ public class TacheChiffrement extends AsyncTask<String, String, Boolean>{
 	
 	@Override
 	protected void onPreExecute() {
-		// TODO Auto-generated method stub
-/*		System.out.println("Chiffrement en Cours...");*/
-		MainActivity.AfficherToast(context, "Chiffrement en cours...");
+		String cryptFinished = "Chiffrement en cours...";
+		String unCryptFinished = "Dechiffrement en cours...";
+				
+		MainActivity.AfficherToast(context, this.modeCrypt ? cryptFinished : unCryptFinished );
 		System.out.println("Pre-execution tache");
 		
 		super.onPreExecute();
@@ -50,14 +58,13 @@ public class TacheChiffrement extends AsyncTask<String, String, Boolean>{
 		
 		try {
 			if(typeTache.equals(TypeTache.ByWidget)){
-				boolean ToCrypt = FilePathConfigurationFactory.ExtractWidgetModeCrypt(context);
 				System.out.println("Dans background : Widget");
 				
 				System.out.println("DANS LE SERVICE !");
 								
 				
 				Collection<String> pathsToCryptOrDecrypt = FilePathConfigurationFactory.ReadFromConfigPathsListFile(true, true, context);
-				Collection<String> pathsEncryptedList = ToCrypt ? EncryptionFactory.Encrypt(pathsToCryptOrDecrypt) : EncryptionFactory.Decrypt(pathsToCryptOrDecrypt);
+				Collection<String> pathsEncryptedList = modeCrypt ? EncryptionFactory.Encrypt(pathsToCryptOrDecrypt) : EncryptionFactory.Decrypt(pathsToCryptOrDecrypt);
 				FilePathConfigurationFactory.WriteInConfigPathsListFile(pathsEncryptedList, false, true, context);
 				FilePathConfigurationFactory.SwitchWidgetMode(context);
 				
@@ -77,6 +84,7 @@ public class TacheChiffrement extends AsyncTask<String, String, Boolean>{
 			}
 		}catch(Exception e) {
 			System.out.println("Une erreur");
+			e.printStackTrace();
 			reussi = false;
 			MainActivity.AfficherToast(context.getMainLooper(), context, "Problem : Stopping the encrypting !\n\n"+e.getMessage());
 		}
@@ -95,7 +103,11 @@ public class TacheChiffrement extends AsyncTask<String, String, Boolean>{
 
 	@Override
 	protected void onPostExecute(Boolean result) {
-		MainActivity.AfficherToast(context, "Chiffrement terminé...");
+		String cryptFinished = "Chiffrement terminé...";
+		String unCryptFinished = "Dechiffrement terminé...";
+				
+		MainActivity.AfficherToast(context, this.modeCrypt ? cryptFinished : unCryptFinished );
+				
 		System.out.println("Fini !");
 		WidgetLanceur.ChiffrementEnCours = false;
 		super.onPostExecute(result);

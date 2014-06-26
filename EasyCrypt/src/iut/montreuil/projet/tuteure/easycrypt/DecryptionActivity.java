@@ -1,13 +1,21 @@
 package iut.montreuil.projet.tuteure.easycrypt;
 
 import iut.montreuil.projet.tuteure.easycrypt.R.id;
+import iut.montreuil.projet.tuteure.easycrypt.modele.EncryptionFactory;
+import iut.montreuil.projet.tuteure.easycrypt.modele.FileFactory;
+import iut.montreuil.projet.tuteure.easycrypt.modele.FilePathConfigurationFactory;
+import iut.montreuil.projet.tuteure.easycrypt.modele.TacheChiffrement;
+import iut.montreuil.projet.tuteure.easycrypt.modele.TacheChiffrement.TypeTache;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +43,8 @@ public class DecryptionActivity extends Activity{
         mylistView = (ListView)findViewById(R.id.list);
         btn_decrypt_action = (Button) findViewById(id.btn_decrypt_action);
         
-        encryptedFilesPathList.add("tesssssssst");
+        encryptedFilesPathList.addAll(FilePathConfigurationFactory.ReadFromConfigPathsListFile(false, false, getApplicationContext()));
+        
         fileAdapter = new FileAdapter(this, R.layout.decryption_activity_row, R.id.txtView_encryptedFilePathChkBox, encryptedFilesPathList);
         mylistView.setAdapter(fileAdapter);
         initialiserBoutons();
@@ -45,13 +54,9 @@ public class DecryptionActivity extends Activity{
 		this.btn_decrypt_action.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View arg0) {
 				filesPathToDecrypt = fileAdapter.getCheckedItems();
-			    for(int i = 0; i < filesPathToDecrypt.size(); i++) {
-			    	
-			        Toast.makeText(
-						      getApplicationContext(), 
-						      filesPathToDecrypt.get(i), 
-						      Toast.LENGTH_LONG).show();
-			    }
+				TacheChiffrement t = new TacheChiffrement(getApplicationContext(), TypeTache.ByGUI, false);
+				t.execute(filesPathToDecrypt.toArray(new String[filesPathToDecrypt.size()]));
+			    onBackPressed();
 			}
 		});
 	}
@@ -116,6 +121,11 @@ public class DecryptionActivity extends Activity{
 	   
 	   TextView txtView_encryptedFilePath = (TextView)row.findViewById(R.id.txtView_encryptedFilePath);
 	   txtView_encryptedFilePath.setText(encryptedFilesPathList.get(position));
+	   
+	   if (new File(encryptedFilesPathList.get(position)).isDirectory()) {
+		   row.setBackgroundColor(Color.YELLOW);
+	   }else
+		   row.setBackgroundColor(Color.TRANSPARENT);
 	   
 	   CheckBox txtView_encryptedFilePathChkBox =  (CheckBox) row.findViewById(R.id.txtView_encryptedFilePathChkBox);
 	   txtView_encryptedFilePathChkBox.setTag(position);

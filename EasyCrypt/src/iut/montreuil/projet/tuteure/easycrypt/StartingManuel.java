@@ -33,12 +33,20 @@ public class StartingManuel extends Activity {
 			public void onClick(View v) {
 				Intent i = new Intent(getThis(), SettingsActivity.class);
                 startActivity(i);
+                finish();
 			}
 		});
 		
 		
 		
 		//TODO a skip button disabled for the first time (configuration file presente)
+	}
+	
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		start = true;
 	}
 
 	
