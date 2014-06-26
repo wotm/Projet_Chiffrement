@@ -33,10 +33,12 @@ public final class R {
         public static final int ic_launcher=0x7f020003;
         public static final int icon=0x7f020004;
         public static final int image=0x7f020005;
-        public static final int packed=0x7f020006;
-        public static final int text=0x7f020007;
-        public static final int uponelevel=0x7f020008;
-        public static final int webtext=0x7f020009;
+        public static final int logo_easycrypt=0x7f020006;
+        public static final int packed=0x7f020007;
+        public static final int rounded_corner=0x7f020008;
+        public static final int text=0x7f020009;
+        public static final int uponelevel=0x7f02000a;
+        public static final int webtext=0x7f02000b;
     }
     public static final class id {
         public static final int action_settings=0x7f0a0014;

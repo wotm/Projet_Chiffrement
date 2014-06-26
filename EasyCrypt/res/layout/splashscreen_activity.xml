@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/txtview_splashScreenTitle"
-        android:textColor="#E6E6FA"
+        android:textColor="#798081"
         android:textSize="70sp" 
         android:layout_marginTop="100dp" 
         android:textStyle="bold|italic" />
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/txtview_splashScreenAuthors"
-        android:textColor="#E6E6FA"
+        android:textColor="#798081"
         android:textSize="18sp" 
         android:textStyle="italic" />
     

@@ -19,7 +19,8 @@
         android:text="@string/btn_start"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
-        android:typeface="monospace" />
+        android:typeface="monospace" 
+        android:background="@drawable/rounded_corner" />
     
         <Button
         android:id="@+id/btn_settings"
@@ -31,7 +32,8 @@
         android:text="@string/btn_settings"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
-        android:typeface="monospace" />
+        android:typeface="monospace" 
+        android:background="@drawable/rounded_corner" />
         
         <Button
         android:id="@+id/btn_usr_guide"
@@ -43,7 +45,8 @@
         android:text="@string/btn_usr_guide"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
-        android:typeface="monospace" />
+        android:typeface="monospace" 
+        android:background="@drawable/rounded_corner" />
         
          <Button
         android:id="@+id/btn_close"
@@ -55,6 +58,7 @@
         android:text="@string/btn_close"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
-        android:typeface="monospace" />
+        android:typeface="monospace" 
+        android:background="@drawable/rounded_corner" />
 
 </LinearLayout>

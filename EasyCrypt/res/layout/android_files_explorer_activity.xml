@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="0dp"
-        android:text="Chiffrer" />
+        android:text="Chiffrer" 
+        android:background="@drawable/rounded_corner" />
         
      <ImageButton
         android:contentDescription="Up one level"
